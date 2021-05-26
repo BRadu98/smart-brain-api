@@ -20,7 +20,10 @@ const app = express();
 console.log('checking')
 app.use(morgan('combined'))
 app.use(cors())
-app.use(bodyParser.json());
+// app.use(bodyParser.json()); //depreciated
+app.use(express.json());
+app.use(express.urlencoded({extended: true})); 
+
 
 app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/signin', signin.handleSignin(db, bcrypt))
