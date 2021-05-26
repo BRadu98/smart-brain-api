@@ -10,6 +10,7 @@ services:
     working_dir: /usr/src/smart-brain-api
     environment: 
       POSTGRES_URI: postgres://sally:secret@postgres:5432/smart-brain-docker
+      JWT_SECRET: fMsSmgDwzWWm3UvrvaY33Ho/eq1d8I3pC5zvAH73GYsQyu4tboQQOTY/tnezut4mZmCRmBinZ5J/84lM3co1ghqTCaZThBZEvVHo90h1kA2mHhsXY3Jz4qmY2lG9B+mDjbOliJGOrA2En7VuV1Tw+dAJCrCjLbyxtFDmvWLIyaKXNCDTWfz67O4WxXAxd784rRbWvS016U/O+dPObJeRu9n+SgkU1Clb56/B2tEGR/v/MCgF15QhzqoI7JGGb8BfxmyXxzZRU8EJZXydRRNI9G2lxLm/XOCHMmNy/BLZWRd1f2BCqmkJoWh+yaN5FZ4Fkx/4Mk62RqAhXwADg+Ozew==
     ports:
       - "3000:3000"
     volumes:
