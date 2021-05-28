@@ -15,10 +15,9 @@ const handleProfileUpdate = (req, res, db) => {
   //should check that this is correct ex not malicious + add age pet to db and update them
   const {id} = req.params;
   const {name, age, pet} = req.body.formInput;
-  
   db('users')
     .where({ id })
-    .update({ name })
+    .update({ name, age, pet })
     .then(resp => {
       if (resp) {
         res.json('success')
