@@ -10,6 +10,7 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 const auth = require('./controllers/authorization');
+const signout = require('./controllers/signout');
 
 //console.log(process.env.POSTGRES_USER)
 const db = knex({
@@ -34,6 +35,7 @@ app.get('/profile/:id', auth.requireAuth, (req, res) => { profile.handleProfileG
 app.post('/profile/:id&:pet&:age', auth.requireAuth, (req, res) => {profile.handleProfileUpdate(req, res, db)})
 app.put('/image', auth.requireAuth, (req, res) => { image.handleImage(req, res, db)})
 app.post('/imageurl', auth.requireAuth, (req, res) => { image.handleApiCall(req, res)})
+app.delete('/signout', auth.requireAuth, (req, res) => { signout.handleSignout(req, res)})
 
 app.listen(3000, ()=> {
   console.log('app is running on port 3000');

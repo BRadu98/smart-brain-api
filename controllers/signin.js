@@ -43,7 +43,7 @@ const getAuthTokenId = (req, res) => {
   const { authorization } = req.headers;
   return redisClient.get(authorization, (err, reply) => {
     if (err || !reply) {
-      return res.status(400).json('Unauthorized');
+      return res.status(400).json('Unauthorized - signin');
     }
     return res.json({id: reply})
   })
@@ -58,8 +58,9 @@ const signToken = (email) => {
 }
 
 const setToken = (key, value) => { //(token, id)
-  return Promise.resolve(redisClient.set(key, value))
+  return Promise.resolve(redisClient.set(key, value,'EX', 60 * 60 * 24 * 2))
 }
+
 
 const createSessions = (user) => {
   //JWT token, return user data
