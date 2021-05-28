@@ -19,7 +19,6 @@ const db = knex({
 });
 
 const app = express();
-console.log('checking')
 app.use(morgan('combined'))
 app.use(cors())
 // app.use(bodyParser.json()); //depreciated
